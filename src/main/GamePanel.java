@@ -14,9 +14,16 @@ public class GamePanel extends JPanel implements Runnable{
     public final int maxScreenColumn = 16; // horizontally  16
     public final int maxScreenRow = 12; // vertically 12
 
-    final int screenWidth = tileSize * maxScreenColumn; // 768 px
+    public final int screenWidth = tileSize * maxScreenColumn; // 768 px
 
-    final int screenHeight = tileSize * maxScreenRow; // 576 px
+    public final int screenHeight = tileSize * maxScreenRow; // 576 px
+
+
+    // SETTINGS
+    public final int maxWorldColumn = 60;
+    public final int maxWorldRow = 60;
+    public final int worldWidth = tileSize * maxWorldColumn;
+    public final int worldWHeight = tileSize * maxWorldRow;
 
     // FPS
     int FPS = 60;
@@ -25,7 +32,7 @@ public class GamePanel extends JPanel implements Runnable{
     KeyInput keyInput = new KeyInput();
     // Keeps running until its manually stopped
     Thread gameThread;
-    Player player = new Player(this,keyInput);
+    public Player player = new Player(this,keyInput);
 
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth,screenHeight));

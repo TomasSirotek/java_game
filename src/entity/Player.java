@@ -1,8 +1,6 @@
 package entity;
-
 import main.GamePanel;
 import main.KeyInput;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -13,16 +11,23 @@ public class Player extends Entity{
     GamePanel gamePanel;
     KeyInput keyInput;
 
+    public final int screenX;
+    public final int screenY;
+
     public Player(GamePanel gamePanel,KeyInput keyInput){
         this.gamePanel = gamePanel;
         this.keyInput = keyInput;
+
+        screenX = gamePanel.screenWidth/2 - (gamePanel.tileSize/2);
+        screenY = gamePanel.screenHeight/2 - (gamePanel.tileSize/2);
+
         setDefaultValues();
         getPlayerImage();
     }
 
     public void setDefaultValues(){
-        x = 100;
-        y = 100;
+        worldX = gamePanel.tileSize * 35;
+        worldY = gamePanel.tileSize * 5;
         speed = 4;
     }
 
@@ -30,16 +35,16 @@ public class Player extends Entity{
 
         if(keyInput.upPressed){
             direction = "up";
-            y -= speed; //  playerY = playerY - playerSpeed;
+            worldY -= speed; //  playerY = playerY - playerSpeed;
         }else if(keyInput.downPressed) {
             direction = "down";
-            y+= speed;
+            worldY += speed;
         }else if (keyInput.leftPressed){
             direction = "left";
-            x -= speed;
+            worldX -= speed;
         } else if (keyInput.rightPressed) {
             direction = "right";
-            x += speed;
+            worldX += speed;
         }
     }
 
@@ -64,6 +69,6 @@ public class Player extends Entity{
            case "right" -> right;
            default -> null;
        };
-        graphics2D.drawImage(image,x,y,gamePanel.tileSize,gamePanel.tileSize,null);
+        graphics2D.drawImage(image,screenX,screenY,gamePanel.tileSize,gamePanel.tileSize,null);
     }
 }
