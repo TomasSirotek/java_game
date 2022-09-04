@@ -54,27 +54,5 @@ public class CollisionChecker {
                 }
 
         }
-
-//        switch (entity.direction) {
-//            case "up" -> {
-//                entityTopRow = (entityTopRow - entity.speed/gamePanel.tileSize);
-//                tileNum1 = gamePanel.tileManager.mapTileNum[entityLeftCol][entityTopRow];
-//                tileNum2 = gamePanel.tileManager.mapTileNum[entityRightCol][entityBottomRow];
-//                if(gamePanel.tileManager.tile[tileNum1].collision || gamePanel.tileManager.tile[tileNum2].collision){
-//                    entity.isCollision = true;
-//                }
-//            }
-//            case "down" -> {
-//                break;
-//            }
-//            case "left" -> {
-//                break;
-//            }
-//            case "right" -> {
-//                break;
-//            }
-//            default -> {
-//            }
-//        };
     }
 }
