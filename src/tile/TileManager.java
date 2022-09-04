@@ -12,9 +12,9 @@ import java.util.Objects;
 
 public class TileManager {
     GamePanel gamePanel;
-    Tile[] tile;
+    public Tile[] tile;
 
-    int[][] mapTileNum;
+    public int[][] mapTileNum;
 
     public TileManager(GamePanel gamePanel){
 
@@ -60,14 +60,34 @@ public class TileManager {
     public void getTileImage(){
         try {
             tile[0] = new Tile();
-            tile[0].image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/tiles/miami_16px.png")));
+            tile[0].image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/tiles/tile_base.png")));
 
             tile[1] = new Tile();
-            tile[1].image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/tiles/brick_wall_default.png")));
+            tile[1].image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/tiles/wall_base_right.png")));
+            tile[1].collision = true;
 
             tile[2] = new Tile();
-            tile[2].image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/tiles/tv.png")));
+            tile[2].image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/tiles/corner.png")));
+            tile[2].collision = true;
 
+            tile[3] = new Tile();
+            tile[3].image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/tiles/wall_base_up.png")));
+            tile[3].collision = true;
+
+            tile[4] = new Tile();
+            tile[4].image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/tiles/wall_base_left.png")));
+            tile[4].collision = true;
+
+            tile[5] = new Tile();
+            tile[5].image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/tiles/wall_base_down.png")));
+            tile[5].collision = true;
+
+            tile[6] = new Tile();
+            tile[6].image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/tiles/floor.png")));
+
+            tile[7] = new Tile();
+            tile[7].image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/tiles/box.png")));
+            tile[7].collision = true;
         }catch(IOException e){
             e.printStackTrace();
         }

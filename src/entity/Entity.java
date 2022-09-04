@@ -1,5 +1,6 @@
 package entity;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 // Stores all the variables for player npc ,monsters
@@ -10,4 +11,7 @@ public class Entity {
     public BufferedImage up,down,left,right;
 
     public String direction;
+
+    public Rectangle solidRectangle;
+    public boolean isCollision = false;
 }

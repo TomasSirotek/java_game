@@ -20,8 +20,8 @@ public class GamePanel extends JPanel implements Runnable{
 
 
     // SETTINGS
-    public final int maxWorldColumn = 60;
-    public final int maxWorldRow = 60;
+    public final int maxWorldColumn = 40;
+    public final int maxWorldRow = 40;
     public final int worldWidth = tileSize * maxWorldColumn;
     public final int worldWHeight = tileSize * maxWorldRow;
 
@@ -32,6 +32,7 @@ public class GamePanel extends JPanel implements Runnable{
     KeyInput keyInput = new KeyInput();
     // Keeps running until its manually stopped
     Thread gameThread;
+    public CollisionChecker collisionChecker = new CollisionChecker(this);
     public Player player = new Player(this,keyInput);
 
     public GamePanel(){
